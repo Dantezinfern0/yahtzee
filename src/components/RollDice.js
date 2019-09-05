@@ -5,15 +5,20 @@ class RollDice extends Component {
     super(props)
     this.state = {
       dice: 6,
+      keepDice: [],
     }
   }
-  keepOne = () => {
+  keepOne = (e) => {
+    console.log('clicked',e.target.value)
     let counter = this.state.dice - 1
+    let kept = []
+    kept.push(e.target.value)
     this.setState({
       dice: counter,
+      keepDice: kept,
     })
-    
-    console.log(this.state.dice)
+    console.log('kept',this.state.keptDice)
+    console.log( 'dice counter' ,this.state.dice)
   }
   render() {
     return (
@@ -22,8 +27,10 @@ class RollDice extends Component {
         <li key={i}>
            {m}
           <button  
-            onClick={this.keepOne} 
-            key={i}>
+            onClick={(e) => this.keepOne} 
+            key={i}
+            value={m}
+            >
             keep
           </button>
         </li>
