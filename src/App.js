@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/Header'
-import HelloWorld from './components/RollDice'
+import Header from './components/Header'
+import RollDice from './components/RollDice'
 
 
 class App extends Component {
-  state = {
+  constructor(props) {
+    super(props)
+    this.state = {
     rolledDice: [],
     numberOfDiceToRoll: 5
-  }
+  }}
   getRandomNumber = () => {
     return Math.ceil(Math.random() *6)
   }
@@ -20,7 +22,9 @@ for (let i = 0; i<5; i++){
 })
   }
   render() {
-    return <header>Yahtzee!</header>
+    return (
+    <div>
+      <header>Yahtzee!</header>
     <main>
       <button onClick={this.rollDice}>roll</button>
       <p>you have 2 rolls left</p>
@@ -46,6 +50,8 @@ for (let i = 0; i<5; i++){
 
       </ul>
     </main>
+    </div>
+    )
   }
 }
 
